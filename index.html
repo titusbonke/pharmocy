@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sathya UI</title>
+
+    <style type="text/css">
+        .row {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="test.js"></script>
+
+
+
+
+    <div class="container  ">
+        <!-- <div class="row p-2">
+            <div class="col"><input type="file" class="btn btn-primary" id="fileUpload" style="width: 250px;" /></div>
+        </div>
+        <div class="row p-2">
+            <div class="col"><input type="button" class="btn btn-primary" id="upload" value="Convert to CSV"
+                    onclick="UploadProcess()" /></div>
+        </div> -->
+
+        <div class="row d-flex justify-content-center">
+            <div class="col">
+                <label for="BrandsInput" class="form-label">Brands</label>
+                <input class="form-control" list="BrandsList" id="BrandsInput" placeholder="Type to search...">
+                <datalist id="BrandsList">
+                </datalist>
+            </div>
+            <div class="col">
+                <label for="CompositionInput" class="form-label">Composition</label>
+                <input class="form-control" list="CompositionList" id="CompositionInput"
+                    placeholder="Type to search...">
+                <datalist id="CompositionList">
+                </datalist>
+            </div>
+            <div class="col">
+                <label for="TherapyInput" class="form-label">Therapy</label>
+                <input class="form-control" list="TherapyList" id="TherapyInput" placeholder="Type to search...">
+                <datalist id="TherapyList">
+                </datalist>
+            </div>
+            <div class="col">
+                <label for="PresentationInput" class="form-label">Presentation</label>
+                <input class="form-control" list="PresentationList" id="PresentationInput"
+                    placeholder="Type to search...">
+                <datalist id="PresentationList">
+                </datalist>
+            </div>
+
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col">
+                <table class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <td>Brands</td>
+                            <td>Composition</td>
+                            <td>Therapy area</td>
+                            <td>Presentation</td>
+                        </tr>
+                    </thead>
+                    <tbody id="table1">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        $(function () {
+            console.log(data);
+            data.forEach(function (item, index, arr) {
+                // console.log(item);
+                //for adding values to the filter 
+                $("#BrandsList").append(`<option value="${item.Brands}">`);
+                $("#CompositionList").append(`<option value="${item.Composition}">`);
+                // $("#TherapyList").append(`<option value="${item.Therapy}">`);
+                // $("#PresentationList").append(`<option value="${item.Presentation}">`);
+                //for adding values to the table at first
+                $("#table1").append(`                        <tr>
+                            <td>${item.Brands}</td>
+                            <td>${item.Composition}</td>
+                            <td>${item.Therapy} </td>
+                            <td>${item.Presentation}</td>
+                        </tr>`);
+
+                // $("#BrandsInput").on('select', function () {
+                //     var val = this.value;
+                //     if ($('#BrandsList option').filter(function () {
+                //         return this.value.toUpperCase() === val.toUpperCase();
+                //     }).length) {
+                //         //send ajax request
+                //         alert(this.value);
+                //     }
+                // });
+                // document.getElementById('BrandsInput').addEventListener('input', function () {
+                //     console.log('changed');
+                // });
+
+                // $("#BrandsInput").on('input', function (event) {
+                //     if ($("#BrandsList option[value='" + $('#BrandsInput').val() + "']").val() == this.value) {
+                //         //send ajax request
+                //         console.log("changed");
+                //     }
+                // });
+
+                // $("#BrandsInput").on('input', function () {
+                //     var val = this.value;
+                //     if ($('#BrandsList option').filter(function () {
+                //         return this.value.toUpperCase() === val.toUpperCase();
+                //     }).length) {
+                //         //send ajax request
+                //         alert(this.value);
+                //     }
+                // });
+
+                // $(document).ready(function () {
+                //     $('#BrandsInput').on('input', function () {
+                //         var userText = $(this).val();
+
+                //         $("#BrandsList").find("option").each(function () {
+                //             if ($(this).val() == userText) {
+                //                 alert("Make Ajax call here.");
+                //             }
+                //         })
+                //     })
+                // });
+
+                // $("#BrandsInput").focusout(function () {
+
+                //     if ($("#BrandsList option[value='" + $('#BrandsInput').val() + "']").val() == this.value) {
+                //         //send ajax request
+                //         console.log("changed");
+                //     }
+
+
+
+                // });
+                // function onInput() {
+                //     var val = document.getElementById("BrandsInput").value;
+                //     var opts = document.getElementById('BrandsList').childNodes;
+                //     for (var i = 0; i < opts.length; i++) {
+                //         if (opts[i].value === val) {
+                //             // An item was selected from the list!
+                //             // yourCallbackHere()
+                //             alert(opts[i].value);
+                //             break;
+                //         }
+                //     }
+                // }
+
+
+            });
+
+
+            var TherapyData = data.reduce(function (a, b) {
+                if (a.indexOf(b.Therapy) < 0) a.push(b.Therapy);
+                return a;
+            }, []);
+            console.log(TherapyData);
+            TherapyData.forEach(function (item, index, arr) {
+                $("#TherapyList").append(`<option value="${item}">`);
+
+            });
+
+            var PresentationData = data.reduce(function (a, b) {
+                if (a.indexOf(b.Presentation) < 0) a.push(b.Presentation);
+                return a;
+            }, []);
+            console.log(PresentationData);
+            PresentationData.forEach(function (item, index, arr) {
+                $("#PresentationList").append(`<option value="${item}">`);
+
+            });
+
+
+
+            $("#BrandsInput").on('input', function (event) {
+                if ($("#BrandsList option[value='" + $('#BrandsInput').val() + "']").val() == this.value) {
+                    //send ajax request
+                    var value = $('#BrandsInput').val();
+                    console.log(value);
+                    $("#table1").empty();
+                    var FilteredData = data.filter(function (item, index, arr) {
+                        return item.Brands == value;
+                    });
+                    console.log(FilteredData)
+
+                    FilteredData.forEach(function (item, index, arr) {
+                        $("#table1").append(`                        <tr>
+                            <td>${item.Brands}</td>
+                            <td>${item.Composition}</td>
+                            <td>${item.Therapy} </td>
+                            <td>${item.Presentation}</td>
+                        </tr>`);
+
+                    });
+                    $("#CompositionInput").val("");
+                    $("#TherapyInput").val("");
+                    $("#PresentationInput").val("");
+                }
+            });
+
+            $("#CompositionInput").on('input', function (event) {
+                if ($("#CompositionList option[value='" + $('#CompositionInput').val() + "']").val() == this.value) {
+                    //send ajax request
+                    var value = $('#CompositionInput').val();
+                    console.log(value);
+                    $("#table1").empty();
+                    var FilteredData = data.filter(function (item, index, arr) {
+                        return item.Composition == value;
+                    });
+                    console.log(FilteredData)
+
+                    FilteredData.forEach(function (item, index, arr) {
+                        $("#table1").append(`                        <tr>
+                            <td>${item.Brands}</td>
+                            <td>${item.Composition}</td>
+                            <td>${item.Therapy} </td>
+                            <td>${item.Presentation}</td>
+                        </tr>`);
+
+                    });
+                    $("#BrandsInput").val("");
+                    $("#TherapyInput").val("");
+                    $("#PresentationInput").val("");
+
+                }
+            });
+
+            $("#TherapyInput").on('input', function (event) {
+                if ($("#TherapyList option[value='" + $('#TherapyInput').val() + "']").val() == this.value) {
+                    //send ajax request
+                    var value = $('#TherapyInput').val();
+                    console.log(value);
+                    $("#table1").empty();
+                    var FilteredData = data.filter(function (item, index, arr) {
+                        return item.Therapy == value;
+                    });
+                    console.log(FilteredData)
+
+                    FilteredData.forEach(function (item, index, arr) {
+                        $("#table1").append(`                        <tr>
+                            <td>${item.Brands}</td>
+                            <td>${item.Composition}</td>
+                            <td>${item.Therapy} </td>
+                            <td>${item.Presentation}</td>
+                        </tr>`);
+
+                    });
+
+                    $("#CompositionInput").val("");
+                    $("#BrandsInput").val("");
+                    $("#PresentationInput").val("");
+
+                }
+            });
+
+            $("#PresentationInput").on('input', function (event) {
+                if ($("#PresentationList option[value='" + $('#PresentationInput').val() + "']").val() == this.value) {
+                    //send ajax request
+                    var value = $('#PresentationInput').val();
+                    console.log(value);
+                    $("#table1").empty();
+                    var FilteredData = data.filter(function (item, index, arr) {
+                        return item.Presentation == value;
+                    });
+                    console.log(FilteredData)
+
+                    FilteredData.forEach(function (item, index, arr) {
+                        $("#table1").append(`                        <tr>
+                            <td>${item.Brands}</td>
+                            <td>${item.Composition}</td>
+                            <td>${item.Therapy} </td>
+                            <td>${item.Presentation}</td>
+                        </tr>`);
+
+                    });
+                    $("#CompositionInput").val("");
+                    $("#TherapyInput").val("");
+                    $("#BrandsInput").val("");
+
+                }
+            });
+
+
+
+        });
+
+    </script>
+
+
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
+
+    <script type="text/javascript">
+        function UploadProcess() {
+            //Reference the FileUpload element.
+            var fileUpload = document.getElementById("fileUpload");
+            //Validate whether File is valid Excel file.
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx|.csv)$/;
+            if (regex.test(fileUpload.value.toLowerCase())) {
+                if (typeof (FileReader) != "undefined") {
+                    var reader = new FileReader();
+
+                    //For Browsers other than IE.
+                    if (reader.readAsBinaryString) {
+                        reader.onload = function (e) {
+                            GetTableFromExcel(e.target.result);
+                        };
+                        reader.readAsBinaryString(fileUpload.files[0]);
+                    } else {
+                        //For IE Browser.
+                        reader.onload = function (e) {
+                            var data = "";
+                            var bytes = new Uint8Array(e.target.result);
+                            for (var i = 0; i < bytes.byteLength; i++) {
+                                data += String.fromCharCode(bytes[i]);
+                            }
+                            GetTableFromExcel(data);
+                        };
+                        reader.readAsArrayBuffer(fileUpload.files[0]);
+                    }
+                } else {
+                    alert("This browser does not support HTML5.");
+                }
+            } else {
+                alert("Please upload a valid Excel file.");
+            }
+        };
+        var peid = "";
+        function GetTableFromExcel(data) {
+            //Read the Excel File data in binary
+            var workbook = XLSX.read(data, {
+                type: 'binary'
+            });
+
+            //get the name of First Sheet.
+            var Sheet = workbook.SheetNames[0];
+
+            //Read all rows from First Sheet into an JSON array.
+            var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[Sheet]);
+
+            console.log(excelRows);
+
+        };
+    </script> -->
+
+</body>
+
+</html>
