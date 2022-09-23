@@ -854,15 +854,15 @@ var data=[
         "Division": "PHARMA",
         "Group": "OTHER SPECIALITY"
     },
-    {
-        "S.no": "96",
-        "Brands": "RADAR C3 Softules",
-        "Composition": "Curcumin C3 Complex , Ω - 3 - FA , Grape Seed Extract , ALA , Lycopene , Mixed Carotenoids",
-        "Therapy": "Nutraceuticals",
-        "Presentation": "10 X 10's Blister",
-        "Division": "HYPNOS",
-        "Group": "4 in 1 Care"
-    },
+    // {
+    //     "S.no": "96",
+    //     "Brands": "RADAR C3 Softules",
+    //     "Composition": "Curcumin C3 Complex , Ω - 3 - FA , Grape Seed Extract , ALA , Lycopene , Mixed Carotenoids",
+    //     "Therapy": "Nutraceuticals",
+    //     "Presentation": "10 X 10's Blister",
+    //     "Division": "HYPNOS",
+    //     "Group": "4 in 1 Care"
+    // },
     {
         "S.no": "97",
         "Brands": "NORI Tablets",

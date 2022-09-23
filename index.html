@@ -62,7 +62,7 @@
                 <datalist id="TherapyList">
                 </datalist>
             </div>
-            <div class="col">
+            <!-- <div class="col">
                 <label for="PresentationInput" class="form-label">Presentation</label>
                 <input class="form-control" list="PresentationList" id="PresentationInput"
                     placeholder="Type to search...">
@@ -81,7 +81,7 @@
                 <input class="form-control" list="DivisionList" id="DivisionInput" placeholder="Type to search...">
                 <datalist id="DivisionList">
                 </datalist>
-            </div>
+            </div> -->
 
         </div>
         <div class="row">
@@ -114,7 +114,7 @@
                             <td>Therapy area</td>
                             <td>Presentation</td>
                             <td>Group</td>
-                            <td>Division</td>
+                            <!-- <td>Division</td> -->
                         </tr>
                     </thead>
                     <tbody id="table1">
@@ -145,7 +145,6 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                 // $("#BrandsInput").on('select', function () {
@@ -227,35 +226,35 @@
 
             });
             //for removing duplicates
-            var PresentationData = data.reduce(function (a, b) {
-                if (a.indexOf(b.Presentation) < 0) a.push(b.Presentation);
-                return a;
-            }, []);
-            console.log(PresentationData);
-            PresentationData.forEach(function (item, index, arr) {
-                $("#PresentationList").append(`<option value="${item}">`);
+            // var PresentationData = data.reduce(function (a, b) {
+            //     if (a.indexOf(b.Presentation) < 0) a.push(b.Presentation);
+            //     return a;
+            // }, []);
+            // console.log(PresentationData);
+            // PresentationData.forEach(function (item, index, arr) {
+            //     $("#PresentationList").append(`<option value="${item}">`);
 
-            });
-            //for removing duplicates
-            var GroupData = data.reduce(function (a, b) {
-                if (a.indexOf(b.Group) < 0) a.push(b.Group);
-                return a;
-            }, []);
-            console.log(GroupData);
-            GroupData.forEach(function (item, index, arr) {
-                $("#GroupList").append(`<option value="${item}">`);
+            // });
+            // //for removing duplicates
+            // var GroupData = data.reduce(function (a, b) {
+            //     if (a.indexOf(b.Group) < 0) a.push(b.Group);
+            //     return a;
+            // }, []);
+            // console.log(GroupData);
+            // GroupData.forEach(function (item, index, arr) {
+            //     $("#GroupList").append(`<option value="${item}">`);
 
-            });
-            //for removing duplicates
-            var DivisionData = data.reduce(function (a, b) {
-                if (a.indexOf(b.Division) < 0) a.push(b.Division);
-                return a;
-            }, []);
-            console.log(DivisionData);
-            DivisionData.forEach(function (item, index, arr) {
-                $("#DivisionList").append(`<option value="${item}">`);
+            // });
+            // //for removing duplicates
+            // var DivisionData = data.reduce(function (a, b) {
+            //     if (a.indexOf(b.Division) < 0) a.push(b.Division);
+            //     return a;
+            // }, []);
+            // console.log(DivisionData);
+            // DivisionData.forEach(function (item, index, arr) {
+            //     $("#DivisionList").append(`<option value="${item}">`);
 
-            });
+            // });
 
 
 
@@ -277,15 +276,14 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                     });
                     $("#CompositionInput").val("");
                     $("#TherapyInput").val("");
-                    $("#PresentationInput").val("");
-                    $("#GroupInput").val("");
-                    $("#DivisionInput").val("");
+                    // $("#PresentationInput").val("");
+                    // $("#GroupInput").val("");
+                    // $("#DivisionInput").val("");
                 }
             });
 
@@ -307,15 +305,14 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                     });
                     $("#BrandsInput").val("");
                     $("#TherapyInput").val("");
-                    $("#PresentationInput").val("");
-                    $("#GroupInput").val("");
-                    $("#DivisionInput").val("");
+                    // $("#PresentationInput").val("");
+                    // $("#GroupInput").val("");
+                    // $("#DivisionInput").val("");
 
                 }
             });
@@ -338,114 +335,113 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                     });
 
                     $("#BrandsInput").val("");
                     $("#CompositionInput").val("");
-                    $("#PresentationInput").val("");
-                    $("#GroupInput").val("");
-                    $("#DivisionInput").val("");
+                    // $("#PresentationInput").val("");
+                    // $("#GroupInput").val("");
+                    // $("#DivisionInput").val("");
 
                 }
             });
 
-            $("#PresentationInput").on('input', function (event) {
-                if ($("#PresentationList option[value='" + $('#PresentationInput').val() + "']").val() == this.value) {
-                    //send ajax request
-                    var value = $('#PresentationInput').val();
-                    console.log(value);
-                    $("#table1").empty();
-                    var FilteredData = data.filter(function (item, index, arr) {
-                        return item.Presentation == value;
-                    });
-                    console.log(FilteredData)
+            // $("#PresentationInput").on('input', function (event) {
+            //     if ($("#PresentationList option[value='" + $('#PresentationInput').val() + "']").val() == this.value) {
+            //         //send ajax request
+            //         var value = $('#PresentationInput').val();
+            //         console.log(value);
+            //         $("#table1").empty();
+            //         var FilteredData = data.filter(function (item, index, arr) {
+            //             return item.Presentation == value;
+            //         });
+            //         console.log(FilteredData)
 
-                    FilteredData.forEach(function (item, index, arr) {
-                        $("#table1").append(`                        <tr>
-                            <td>${item.Brands}</td>
-                            <td>${item.Composition}</td>
-                            <td>${item.Therapy} </td>
-                            <td>${item.Presentation}</td>
-                            <td>${item.Group}</td>
-                            <td>${item.Division}</td>
-                        </tr>`);
+            //         FilteredData.forEach(function (item, index, arr) {
+            //             $("#table1").append(`                        <tr>
+            //                 <td>${item.Brands}</td>
+            //                 <td>${item.Composition}</td>
+            //                 <td>${item.Therapy} </td>
+            //                 <td>${item.Presentation}</td>
+            //                 <td>${item.Group}</td>
+            //                 <td>${item.Division}</td>
+            //             </tr>`);
 
-                    });
-                    $("#BrandsInput").val("");
-                    $("#CompositionInput").val("");
-                    $("#TherapyInput").val("");
-                    $("#GroupInput").val("");
-                    $("#DivisionInput").val("");
+            //         });
+            //         $("#BrandsInput").val("");
+            //         $("#CompositionInput").val("");
+            //         $("#TherapyInput").val("");
+            //         $("#GroupInput").val("");
+            //         $("#DivisionInput").val("");
 
-                }
-            });
-
-
-            $("#GroupInput").on('input', function (event) {
-                if ($("#GroupList option[value='" + $('#GroupInput').val() + "']").val() == this.value) {
-                    //send ajax request
-                    var value = $('#GroupInput').val();
-                    console.log(value);
-                    $("#table1").empty();
-                    var FilteredData = data.filter(function (item, index, arr) {
-                        return item.Group == value;
-                    });
-                    console.log(FilteredData)
-
-                    FilteredData.forEach(function (item, index, arr) {
-                        $("#table1").append(`                        <tr>
-                            <td>${item.Brands}</td>
-                            <td>${item.Composition}</td>
-                            <td>${item.Therapy} </td>
-                            <td>${item.Presentation}</td>
-                            <td>${item.Group}</td>
-                            <td>${item.Division}</td>
-                        </tr>`);
-
-                    });
-                    $("#BrandsInput").val("");
-                    $("#CompositionInput").val("");
-                    $("#TherapyInput").val("");
-                    $("#PresentationInput").val("");
-                    $("#DivisionInput").val("");
-
-                }
-            });
+            //     }
+            // });
 
 
-            $("#DivisionInput").on('input', function (event) {
-                if ($("#DivisionList option[value='" + $('#DivisionInput').val() + "']").val() == this.value) {
-                    //send ajax request
-                    var value = $('#DivisionInput').val();
-                    console.log(value);
-                    $("#table1").empty();
-                    var FilteredData = data.filter(function (item, index, arr) {
-                        return item.Division == value;
-                    });
-                    console.log(FilteredData)
+            // $("#GroupInput").on('input', function (event) {
+            //     if ($("#GroupList option[value='" + $('#GroupInput').val() + "']").val() == this.value) {
+            //         //send ajax request
+            //         var value = $('#GroupInput').val();
+            //         console.log(value);
+            //         $("#table1").empty();
+            //         var FilteredData = data.filter(function (item, index, arr) {
+            //             return item.Group == value;
+            //         });
+            //         console.log(FilteredData)
 
-                    FilteredData.forEach(function (item, index, arr) {
-                        $("#table1").append(`                        <tr>
-                            <td>${item.Brands}</td>
-                            <td>${item.Composition}</td>
-                            <td>${item.Therapy} </td>
-                            <td>${item.Presentation}</td>
-                            <td>${item.Group}</td>
-                            <td>${item.Division}</td>
-                        </tr>`);
+            //         FilteredData.forEach(function (item, index, arr) {
+            //             $("#table1").append(`                        <tr>
+            //                 <td>${item.Brands}</td>
+            //                 <td>${item.Composition}</td>
+            //                 <td>${item.Therapy} </td>
+            //                 <td>${item.Presentation}</td>
+            //                 <td>${item.Group}</td>
+            //                 <td>${item.Division}</td>
+            //             </tr>`);
 
-                    });
-                    $("#BrandsInput").val("");
-                    $("#CompositionInput").val("");
-                    $("#TherapyInput").val("");
-                    $("#PresentationInput").val("");
-                    $("#GroupInput").val("");
+            //         });
+            //         $("#BrandsInput").val("");
+            //         $("#CompositionInput").val("");
+            //         $("#TherapyInput").val("");
+            //         $("#PresentationInput").val("");
+            //         $("#DivisionInput").val("");
 
-                }
-            });
+            //     }
+            // });
+
+
+            // $("#DivisionInput").on('input', function (event) {
+            //     if ($("#DivisionList option[value='" + $('#DivisionInput').val() + "']").val() == this.value) {
+            //         //send ajax request
+            //         var value = $('#DivisionInput').val();
+            //         console.log(value);
+            //         $("#table1").empty();
+            //         var FilteredData = data.filter(function (item, index, arr) {
+            //             return item.Division == value;
+            //         });
+            //         console.log(FilteredData)
+
+            //         FilteredData.forEach(function (item, index, arr) {
+            //             $("#table1").append(`                        <tr>
+            //                 <td>${item.Brands}</td>
+            //                 <td>${item.Composition}</td>
+            //                 <td>${item.Therapy} </td>
+            //                 <td>${item.Presentation}</td>
+            //                 <td>${item.Group}</td>
+            //                 <td>${item.Division}</td>
+            //             </tr>`);
+
+            //         });
+            //         $("#BrandsInput").val("");
+            //         $("#CompositionInput").val("");
+            //         $("#TherapyInput").val("");
+            //         $("#PresentationInput").val("");
+            //         $("#GroupInput").val("");
+
+            //     }
+            // });
 
 
 
@@ -467,11 +463,10 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                 });
-                $("#PresentationInput").val("");
+                // $("#PresentationInput").val("");
                 $("#CompositionInput").val("");
                 $("#TherapyInput").val("");
                 $("#BrandsInput").val("");
@@ -497,11 +492,10 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                 });
-                $("#PresentationInput").val("");
+                // $("#PresentationInput").val("");
                 $("#CompositionInput").val("");
                 $("#TherapyInput").val("");
                 $("#BrandsInput").val("");
@@ -526,11 +520,10 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                 });
-                $("#PresentationInput").val("");
+                // $("#PresentationInput").val("");
                 $("#CompositionInput").val("");
                 $("#TherapyInput").val("");
                 $("#BrandsInput").val("");
@@ -555,11 +548,10 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                 });
-                $("#PresentationInput").val("");
+                // $("#PresentationInput").val("");
                 $("#CompositionInput").val("");
                 $("#TherapyInput").val("");
                 $("#BrandsInput").val("");
@@ -584,11 +576,10 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                 });
-                $("#PresentationInput").val("");
+                // $("#PresentationInput").val("");
                 $("#CompositionInput").val("");
                 $("#TherapyInput").val("");
                 $("#BrandsInput").val("");
@@ -612,11 +603,10 @@
                             <td>${item.Therapy} </td>
                             <td>${item.Presentation}</td>
                             <td>${item.Group}</td>
-                            <td>${item.Division}</td>
                         </tr>`);
 
                 });
-                $("#PresentationInput").val("");
+                // $("#PresentationInput").val("");
                 $("#CompositionInput").val("");
                 $("#TherapyInput").val("");
                 $("#BrandsInput").val("");
